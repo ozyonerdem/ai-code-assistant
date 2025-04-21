@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: codegen-assistant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: codegen-assistant
+  template:
+    metadata:
+      labels:
+        app: codegen-assistant
+    spec:
+      containers:
+        - name: assistant
+          image: codegen-assistant-v3
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5000
